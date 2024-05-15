@@ -1,8 +1,8 @@
-# Alumni Management System (Alumni-SERN)
+# Alumni Management System (Alumni-SERN) 
 
 Welcome to the **Alumni Management System** repository! This system is designed to assist universities/colleges in managing their alumni data effectively. The system consists of two main components: frontend and server.
 
-## 🎯 Project Overview
+## 🎯 Project Overview 
 
 The Alumni Management System has been developed with the following key features:
 

@@ -81,7 +81,7 @@ const Home = () => {
                 <div className="container">
                     <div className="text-center">
                         <h2 className="section-heading text-uppercase">Alumni Benefits</h2>
-                        <h3 className=" card-title text-muted">As a member of the global BZU alumni network, you have access to a variety of exclusive services and benefits.</h3>
+                        <h3 className=" card-title text-muted">As a member of the global VJTI alumni network, you have access to a variety of exclusive services and benefits.</h3>
                     </div>
                     <div className="row">
                         <div className="col-lg-3 col-sm-6 mb-4">

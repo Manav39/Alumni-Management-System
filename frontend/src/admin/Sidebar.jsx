@@ -3,6 +3,7 @@ import { FaHome, FaUserGraduate, FaUsers, FaImage, FaBriefcase } from "react-ico
 import { ImBooks } from "react-icons/im";
 import { IoSettingsSharp, IoCalendar } from "react-icons/io5";
 import { RiSuitcaseFill } from "react-icons/ri";
+import { RiMoneyDollarBoxFill } from "react-icons/ri";
 import { MdForum } from "react-icons/md";
 import { Link, useLocation } from 'react-router-dom';
 
@@ -46,6 +47,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                     <Link  className={`nav-link ${isActive("/dashboard/jobs")}`} to={"/dashboard/jobs"}>
                         <RiSuitcaseFill />
                         <span className='ms-1'>Jobs</span>
+                    </Link>
+                </li>
+                <li onClick={toggleSidebar} className="nav-item">
+                    <Link  className={`nav-link ${isActive("/dashboard/donations")}`} to={"/dashboard/donations"}>
+                        <RiMoneyDollarBoxFill />
+                        <span className='ms-1'>Donations</span>
                     </Link>
                 </li>
                 <li onClick={toggleSidebar} className="nav-item">

@@ -185,6 +185,63 @@ router.get('/jobs', (req, res) => {
     });
 });
 
+router.get('/donations', (req, res) => {
+    const sql = `
+    SELECT donations.*, users.name
+    FROM donations
+    INNER JOIN users ON donations.user_id = users.id
+    ORDER BY donations. id DESC       
+    `;
+
+    con.query(sql, (err, result) => {
+        if (err) {
+            console.error('Error executing SQL query:', err);
+            return res.status(500).json({ error: 'Query Error' });
+        }
+        // Send the fetched job data to the client
+        res.json(result);
+    });
+});
+
+router.post('/managedonations', (req, res) => {
+    const { title, description, total_amount, user_id } = req.body;
+
+    const sql = 'INSERT INTO donations (title, description, total_amount, amount_collected, user_id) VALUES (?, ?, ?, ?,?)';
+    con.query(sql, [title, description, total_amount, 0, user_id], (err, result) => {
+        if (err) {
+            console.error('Error executing SQL query:', err);
+            return res.status(500).json({ error: 'Database Error' });
+        }
+        return res.json({ message: 'New Donation added successfully', jobId: result.insertId });
+    });
+});
+
+router.put('/managedonations', (req, res) => {
+    const { id, title, description, total_amount, user_id } = req.body;
+
+    if (id) {
+        const sql = 'UPDATE donations SET title=?, description=?, total_amount=?, amount_collected=? WHERE id=?';
+        con.query(sql, [title, description, total_amount, 0, id], (err, result) => {
+            if (err) {
+                console.error('Error executing SQL query:', err);
+                return res.status(500).json({ error: 'Database Error' });
+            }
+            return res.json({ message: 'Donation updated successfully' });
+        });
+    } else {
+        return res.status(400).json({ error: 'Invalid Request: No ID provided for update' });
+    }
+});
+
+router.delete('/donations/:id', (req, res) => {
+    const sql = 'DELETE FROM donations WHERE id= ?';
+
+    con.query(sql, [req.params.id], (err, result) => {
+        if (err) { return res.json({ Error: "Query Error" }) }
+        return res.json({ message: 'Donation deleted successfully' });
+    })
+
+});
 
 router.post('/managejob', (req, res) => {
     const { company, job_title, location, description, user_id } = req.body;

@@ -23,6 +23,7 @@ import AdminEvents from "./admin/AdminEvents";
 import AdminForum from "./admin/AdminForum";
 import AdminAlumni from "./admin/AdminAlumni";
 import AdminJobs from "./admin/AdminJobs";
+import AdminDonations from "./admin/AdminDonations";
 import ManageJobs from "./admin/save/ManageJobs";
 import View_Event from "./components/view/View_Event";
 import ManageEvents from "./admin/save/ManageEvents";
@@ -37,6 +38,7 @@ import 'react-quill/dist/quill.snow.css';
 import { ThemeProvider } from "./ThemeContext";
 import PrivateRoute from "./components/PrivateRoute";
 import NotFound from "./components/NotFound";
+import ManageDonations from "./admin/save/ManageDonations";
 
 function App() {
   return (
@@ -94,7 +96,9 @@ function AppRouter() {
             <Route path="/dashboard/forum" element={<AdminForum />} />
             <Route path="/dashboard/alumnilist" element={<AdminAlumni />} />
             <Route path="/dashboard/jobs" element={<AdminJobs />} />
+            <Route path="/dashboard/donations" element={<AdminDonations />} />
             <Route path="/dashboard/jobs/manage" element={<ManageJobs />} />
+            <Route path="/dashboard/donations/manage" element={<ManageDonations />} />
             <Route path="/dashboard/events/manage" element={<ManageEvents />} />
             <Route path="/dashboard/forum/manage" element={<ManageForum />} />
             <Route path="/dashboard/users/manage" element={<ManageUser />} />

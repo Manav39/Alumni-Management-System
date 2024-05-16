@@ -192,7 +192,7 @@ router.get("/counts", (req, res) => {
 router.get("/jobs", (req, res) => {
 
   const sql = `
-    SELECT careers.*, users.name
+    SELECT careers.*, users.name, users.email
     FROM careers
     INNER JOIN users ON careers.user_id = users.id
     ORDER BY careers.id DESC       

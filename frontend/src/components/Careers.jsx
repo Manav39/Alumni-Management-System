@@ -109,7 +109,7 @@ const Careers = () => {
                                                     <span className="filter-txt h3"><small><b><FaMapMarker />{j.location}</b></small></span>
                                                 </div>
                                                 <hr />
-                                                <p dangerouslySetInnerHTML={{ __html: j.description }} className="truncate filter-txt h4" ></p>
+                                                <p dangerouslySetInnerHTML={{ __html: j.description }} style={{ paddingLeft: "10%", paddingRight: "10%" }} className="truncate filter-txt h4" ></p>
                                                 <br />
                                                 <hr className="divider" style={{ maxWidth: "calc(80%)" }} />
                                                 <div className='jobbtn d-flex justify-content-between align-items-center '>

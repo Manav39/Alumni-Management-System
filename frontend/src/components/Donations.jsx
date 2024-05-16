@@ -104,7 +104,7 @@ const Donations = () => {
                                                     <span className="filter-txt h4"><strong><b><FaRupeeSign />{j.amount_collected} / {j.total_amount}</b></strong></span>
                                                 </div>
                                                 <hr />
-                                                <p dangerouslySetInnerHTML={{ __html: j.description }} className="truncate filter-txt h5" ></p>
+                                                <p dangerouslySetInnerHTML={{ __html: j.description }} style={{ paddingLeft: "15%", paddingRight: "15%" }} className="truncate filter-txt h5" ></p>
                                                 <br />
                                                 <hr className="divider" style={{ maxWidth: "calc(80%)" }} />
                                                 <div className='jobbtn d-flex justify-content-between align-items-center '>

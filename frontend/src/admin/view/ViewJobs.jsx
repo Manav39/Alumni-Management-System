@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaMapMarker } from 'react-icons/fa';
+import { MdEmail } from "react-icons/md";
 
 const ViewJobs = ({ job, closeModal }) => {
     return (
@@ -15,6 +16,7 @@ const ViewJobs = ({ job, closeModal }) => {
                             <p><strong>Company:</strong> {job.company}</p>
                             <p><strong>Job Title:</strong> {job.job_title}</p>
                             <p><strong>Location:</strong> <FaMapMarker /> {job.location}</p>
+                            <p><strong>Contact:</strong> <MdEmail /> {job.email}</p>
                             <hr className="divider" />
                             <div className="description" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
                                 <p dangerouslySetInnerHTML={{ __html: job.description }}></p>

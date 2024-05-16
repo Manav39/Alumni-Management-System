@@ -82,7 +82,6 @@ const Signup = () => {
                                             <select onChange={(e) => setValues({ ...values, userType: e.target.value })} className="custom-select" id="userType" name="userType" required defaultValue="">
                                                 <option value="" disabled>Please select</option>
                                                 <option value="alumnus">Alumnus</option>
-                                                <option value="admin">Admin</option>
                                                 <option value="student">Student</option>
                                             </select>
                                         </div>

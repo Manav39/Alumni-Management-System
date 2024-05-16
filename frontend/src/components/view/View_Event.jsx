@@ -97,7 +97,7 @@ const ViewEvent = () => {
                     {isLoggedIn ? (
                       <div className="text-center">
                         {participated ? (
-                          <span className="badge badge-primary">Committed to Participate</span>
+                          <span className="badge badge-primary" style={{ fontSize: "20px" }}>Committed to Participate</span>
                         ) : (
                           <button className="btn btn-primary" onClick={handleParticipation}>Participate</button>
                         )}

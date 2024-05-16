@@ -113,7 +113,7 @@ const Careers = () => {
                                                 <br />
                                                 <hr className="divider" style={{ maxWidth: "calc(80%)" }} />
                                                 <div className='jobbtn d-flex justify-content-between align-items-center '>
-                                                    <span className="badge badge-info ">
+                                                    <span className="badge badge-info " >
                                                         <b><i>Posted by: {j.name}</i></b>
                                                     </span>
                                                     <button className="btn btn-sm  btn-primary " onClick={() => openModal(j)}>Read More</button>
@@ -124,7 +124,7 @@ const Careers = () => {
                                 </div>))}</> : <>
                             <div className="d-flex flex-column justify-content-center align-items-center">
                                 <p >{searchQuery}</p>
-                                <h4 className='text-info-emphasis'>No Job Available</h4>
+                                <h4 className='text-info-emphasis'>No Donations Available</h4>
                             </div>
                         </>}
                         <br />

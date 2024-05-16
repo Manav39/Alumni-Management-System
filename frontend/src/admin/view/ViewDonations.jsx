@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import { FaMapMarker } from "react-icons/fa";
 import axios from "axios";
+import { AuthProvider, useAuth } from '../../AuthContext';
+import { ToastContainer, toast } from 'react-toastify';
+
 const ViewDonations = ({ donation, closeModal }) => {
   const [amount, setAmount] = useState(0);
+  const { isLoggedIn } = useAuth();
 
   const handlePay = async (e) => {
+    if(!amount || amount < 1) {
+      toast.error("Please enter amount greater than Rs. 1");
+      return;
+    }
     const currency = "INR";
     const response = await fetch("http://localhost:3000/pay", {
       method: "POST",
@@ -64,6 +72,7 @@ const ViewDonations = ({ donation, closeModal }) => {
       role="dialog"
       style={{ display: "block" }}
     >
+      <ToastContainer position="top-center" />
       <div className="modal-dialog modal-lg">
         <div className="modal-content">
           <div className="modal-header">
@@ -103,12 +112,14 @@ const ViewDonations = ({ donation, closeModal }) => {
               className="form-control"
               placeholder="Enter the amount you want to donate"
               style={{ width: "600px" }}
+              
             />
             <button
               className="btn btn-secondary"
               style={{ width: "80px", backgroundColor: "green" }}
               type="button"
               onClick={handlePay}
+              disabled={!isLoggedIn}
             >
               Pay
             </button>

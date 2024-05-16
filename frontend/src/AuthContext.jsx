@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     if (user === 'admin') {
       setIsAdmin(true);
       setIsLoggedIn(true);
-    } else if (user === 'alumnus') {
+    } else if (user === 'alumnus' || user === "student") {
       setIsAdmin(false);
       setIsLoggedIn(true);
     } else {

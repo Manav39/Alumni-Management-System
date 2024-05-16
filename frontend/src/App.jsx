@@ -39,6 +39,7 @@ import { ThemeProvider } from "./ThemeContext";
 import PrivateRoute from "./components/PrivateRoute";
 import NotFound from "./components/NotFound";
 import ManageDonations from "./admin/save/ManageDonations";
+import Donations from "./components/Donations";
 
 function App() {
   return (
@@ -77,6 +78,7 @@ function AppRouter() {
         <Route path="/alumni" element={<AlumniList />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/jobs" element={<Careers />} />
+        <Route path="/donate" element={<Donations />} />
         <Route path="/forums" element={<Forum />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />

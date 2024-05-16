@@ -25,7 +25,6 @@ const AdminForum = () => {
   const delForum = (id) => {
     axios.delete(`http://localhost:3000/auth/forum/${id}`)
       .then((res) => {
-        // console.log(res.data.message)
         toast.info(res.data.message);
         setForum(forum.filter((e) => e.id !== id))
       })

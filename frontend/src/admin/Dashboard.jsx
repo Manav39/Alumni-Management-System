@@ -6,7 +6,6 @@ import { Outlet } from "react-router-dom";
 
 const Dashboard = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    // const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
     const toggleSidebar = () => {
         if (window.innerWidth < 768) {
@@ -15,16 +14,15 @@ const Dashboard = () => {
     };
 
     useEffect(() => {
-        // Check viewport width to determine if sidebar should be open
         const handleResize = () => {
             if (window.innerWidth >= 768) {
-                setSidebarOpen(true); // Open sidebar on desktop (viewport width >= 768px)
+                setSidebarOpen(true); 
             } else {
-                setSidebarOpen(false); // Close sidebar on mobile (viewport width < 768px)
+                setSidebarOpen(false); 
             }
         };
 
-        handleResize(); // Call once to set initial state
+        handleResize(); 
 
         window.addEventListener('resize', handleResize);
 
@@ -39,7 +37,6 @@ const Dashboard = () => {
             <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
             <main id="main" className={`main ${sidebarOpen ? 'sidebar-open' : ''}`}>
                 <Outlet />
-                {/* <h1>Hiiiiii</h1> */}
             </main>
         </>
     )

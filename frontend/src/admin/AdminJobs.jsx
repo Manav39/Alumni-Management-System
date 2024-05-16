@@ -3,7 +3,6 @@ import axios from 'axios';
 import { FaPlus } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 import ViewJobs from './view/ViewJobs';
 
 const AdminJobs = () => {
@@ -20,7 +19,6 @@ const AdminJobs = () => {
         setSelectedJob(null);
         setIsModalOpen(false);
     };
-    // const location = useLocation();
 
     useEffect(() => {
         axios.get("http://localhost:3000/auth/jobs")
@@ -30,12 +28,6 @@ const AdminJobs = () => {
             })
             .catch((err) => console.log(err));
     }, []);
-
-    // useEffect(() => {
-    //   if (location.state && location.state.showToast) {
-    //     toast(location.state.message);
-    //   }
-    // }, [location.state]);
 
     const handleDelete = async (id) => {
         try {

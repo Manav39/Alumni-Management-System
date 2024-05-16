@@ -16,12 +16,10 @@ const Manage_Career = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
     const handleBack = () => {
-        // navigate("/dashboard/jobs");
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Perform insert operation
         await axios.post('http://localhost:3000/auth/managejob', formData)
             .then((res) => {
                 toast.success(res.data.message)

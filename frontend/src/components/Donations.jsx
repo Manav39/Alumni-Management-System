@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { FaBuilding, FaMapMarker, FaPlus, FaSearch, FaRupeeSign } from 'react-icons/fa';
 import ViewDonations from '../admin/view/ViewDonations';
-// import { useNavigate } from 'react-router-dom';
 import ManageJobs from '../admin/save/ManageJobs';
 import { useAuth } from '../AuthContext';
 import ManageDonations from '../admin/save/ManageDonations';
@@ -45,7 +44,6 @@ const Donations = () => {
     }
 
     useEffect(() => {
-        // Filter the forum topics based on the search query
         const filteredDonations = donate.filter(don =>
             don.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
             don.description.toLowerCase().includes(searchQuery.toLowerCase())
@@ -96,13 +94,11 @@ const Donations = () => {
                             </div>
                         </div>
                         {filteredDonations.length > 0 ? <>
-                            {/* $event = $conn->query("SELECT c.*,u.name from careers c inner join users u on u.id = c.user_id order by id desc"); */}
                             {filteredDonations.map((j, index) => (
                                 <div className="card job-list" key={index}>
                                     <div className="card-body">
                                         <div className="row  align-items-center justify-content-center text-center h-100">
                                             <div className="">
-                                                {/* <h3><b className="filter-txt">{j.title}</b></h3> */}
                                                 <div>
                                                     <span className="filter-txt h4 mr-5"><strong><b><FaBuilding /> {j.title}</b></strong></span>
                                                     <span className="filter-txt h4"><strong><b><FaRupeeSign />{j.amount_collected} / {j.total_amount}</b></strong></span>

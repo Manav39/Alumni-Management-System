@@ -1,7 +1,5 @@
 .bg-dark {
     background-color: #343a40 !important;
-    /* --bs-text-opacity: 1;
-    color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important; */
 }
 
 a.bg-dark:hover,
@@ -73,7 +71,6 @@ header.masthead {
     background-attachment: scroll;
     background-size: cover;
     position: relative;
-    /* Add position relative */
 }
 
 header.masthead:before {
@@ -90,7 +87,6 @@ header.masthead:before {
 header.masthead>.container-fluid {
     position: relative;
     z-index: 2;
-    /* Ensure content appears above the shadow */
 }
 
 header.masthead>.container {
@@ -107,33 +103,16 @@ header.masthead>.container {
     }
 }
 
-/* dashboard */
-/* .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-}
-
-.sidebar.open {
-    transform: translateX(0);
-}
-
-.main.sidebar-open {
-    margin-left: 240px;
-} */
-/* Add CSS transitions for sidebar */
 .sidebar {
     position: fixed;
     top: 50px;
     left: 0;
     width: 240px;
-    /* Adjust width as needed */
     height: 100%;
     background-color: #fff;
-    /* Adjust background color as needed */
     z-index: 1000;
     transition: transform 0.3s ease-in-out;
     transform: translateX(-240px);
-    /* Initially hidden */
 }
 
 .sidebar.open {
@@ -141,14 +120,8 @@ header.masthead>.container {
 }
 
 .main.sidebar-open {
-    /* margin-left: 240px; */
 }
 
-/* @media (max-width: 768px) {
-    .sidebar {
-        top: 0;
-    }
-  } */
 @media (max-width: 990px) {
     .sidebar {
         width: 170px;

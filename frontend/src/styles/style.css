@@ -1,15 +1,4 @@
 @charset "UTF-8";
-/*!
-* Start Bootstrap - Creative v6.0.3 (https://startbootstrap.com/themes/creative)
-* Copyright 2013-2020 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE)
-*/
-/*!
- * Bootstrap v4.5.0 (https://getbootstrap.com/)
- * Copyright 2011-2020 The Bootstrap Authors
- * Copyright 2011-2020 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -6164,16 +6153,6 @@ button.bg-light:hover,
 button.bg-light:focus {
   background-color: #dae0e5 !important;
 }
-/* 
-.bg-dark {
-  background-color: #343a40 !important;
-}
-
-a.bg-dark:hover, a.bg-dark:focus,
-button.bg-dark:hover,
-button.bg-dark:focus {
-  background-color: #1d2124 !important;
-} */
 
 .bg-white {
   background-color: #fff !important;
@@ -10006,10 +9985,8 @@ html {
 }
 
 hr.divider {
-  /* //for center */
   margin-right: auto;
   margin-left: auto;
-  /* // */
   max-width: 3.25rem;
   border-width: 0.2rem;
   border-color: #007bff;
@@ -10050,7 +10027,6 @@ hr.light {
   color: #6c757d;
   font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
-  /* font-size: 0.9rem; */
   padding: 0.75rem 0;
 }
 #mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
@@ -10097,47 +10073,6 @@ hr.light {
     color: #007bff;
   }
 }
-/* 
-@media (max-width: 425px) {
-  
-  #mainNav > .container > .collapse > .navbar-nav .nav-item .nav-link {
-    color: red !important;
-    font-size: 3rem !important;
-  }
-} */
-/* 
-header.masthead {
-  padding-top: 10rem;
-  padding-bottom: calc(10rem - 4.5rem);
-  background:  url(../assets/uploads/head_covergrad.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-}
-header.masthead h1 {
-  font-size: 2.25rem;
-}
-@media (min-width: 992px) {
-  header.masthead {
-   height: 60vh;
-    min-height: 60vh;
-    padding-top: 4.5rem;
-    padding-bottom: 0;
-  }
-  header.masthead p {
-    font-size: 1.15rem;
-  }
-  header.masthead h1 {
-    font-size: 3rem;
-  }
-}
-@media (min-width: 1200px) {
-  header.masthead h1 {
-    font-size: 3.5rem;
-  }
-} */
-
 #portfolio .container-fluid, #portfolio .container-sm, #portfolio .container-md, #portfolio .container-lg, #portfolio .container-xl {
   max-width: 1920px;
 }
@@ -10403,19 +10338,4 @@ div#menu-field img, div#menu-field .menu-item-details {
   animation: animate-preloader 1s linear infinite;
 }
 section {
-    /* background: #cccccc; */
 }
-/* header.masthead:before {
-    content: "";
-    background: #00000087;
-    position: absolute;
-    width: calc(100%); */
-    /* height: calc(100%); */
-    /* top: 0;
-    height: 60vh;
-    z-index: 1;
-}
-header.masthead>div{
-position: relative;
-z-index: 2;
-} */

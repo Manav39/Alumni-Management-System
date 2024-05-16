@@ -6,22 +6,11 @@ import path from "path";
 import bcrypt from "bcrypt";
 const router = express.Router();
 
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, 'Public/Images');
-//     },
-//     filename: (req, file, cb) => {
-//         cb(null, file.originalname);
-//     }
-// });
-// const upload = multer({ storage: storage });
-// Multer storage configuration for avatar
 const avatarStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "Public/Avatar");
   },
   filename: (req, file, cb) => {
-    // const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
     cb(
       null,
       file.fieldname + "_" + Date.now() + path.extname(file.originalname)
@@ -41,7 +30,6 @@ const galleryStorage = multer.diskStorage({
 });
 const galleryUpload = multer({ storage: galleryStorage });
 
-// app.use(express.static('Public'));
 
 router.post("/login", (req, res) => {
   const sql = "SELECT * from users Where email=?";
@@ -83,22 +71,10 @@ router.post("/login", (req, res) => {
   });
 });
 
-// router.post("/signup", (req, res) => {
-//     const sql = "INSERT INTO users(name,email,password,type) VALUES(?,?,?,?)";
-//     const { name, email, password, userType } = req.body;
-//     con.query(sql, [name, email, password, userType], (err, result) => {
-//         if (err) {
-//             console.error("Error executing SQL query:", err);
-//             return res.status(500).json({ error: "Query Error", signupStatus: false });
-//         }
-//         return res.json({ message: 'SignUp Successfull', userId: result.insertId, signupStatus: true });
-
-//     })
-// })
 router.post("/signup", async (req, res) => {
   const { name, email, password, userType, course_id } = req.body;
   try {
-    const hashedPassword = await bcrypt.hash(password, 10); // Await the hash function
+    const hashedPassword = await bcrypt.hash(password, 10); 
 
     const sql = "SELECT * from users Where email=?";
     con.query(sql, [email], async (err, result) => {
@@ -107,7 +83,6 @@ router.post("/signup", async (req, res) => {
         return res.json({ email: result[0].email });
       } else {
         if (userType == "alumnus") {
-          // insert into alumnus_bio table
           const alumnusSql =
             "INSERT INTO alumnus_bio(name, email, course_id) VALUES(?,?,?)";
           con.query(
@@ -125,7 +100,6 @@ router.post("/signup", async (req, res) => {
                 });
               }
 
-              // insert into users table with alumnus_id
               const alumnusId = alumnusResult.insertId;
               const userSql =
                 "INSERT INTO users(name, email, password, type, alumnus_id) VALUES(?,?,?,?,?)";
@@ -203,7 +177,6 @@ router.get("/counts", (req, res) => {
       return res.status(500).json({ error: "Query Error" });
     }
 
-    // Extract counts from the result
     const counts = {
       forums: result[0].forumCount,
       jobs: result[0].jobCount,
@@ -212,18 +185,12 @@ router.get("/counts", (req, res) => {
       alumni: result[0].alumniCount,
     };
 
-    // Send the counts to the client
     res.json(counts);
   });
 });
 
 router.get("/jobs", (req, res) => {
-  // const sql = `
-  //     SELECT c.*, u.name
-  //     FROM careers c
-  //     INNER JOIN users u ON u.id = c.user_id
-  //     ORDER BY c.id DESC
-  // `;
+
   const sql = `
     SELECT careers.*, users.name
     FROM careers
@@ -236,7 +203,6 @@ router.get("/jobs", (req, res) => {
       console.error("Error executing SQL query:", err);
       return res.status(500).json({ error: "Query Error" });
     }
-    // Send the fetched job data to the client
     res.json(result);
   });
 });
@@ -254,7 +220,6 @@ router.get("/donations", (req, res) => {
       console.error("Error executing SQL query:", err);
       return res.status(500).json({ error: "Query Error" });
     }
-    // Send the fetched job data to the client
     res.json(result);
   });
 });
@@ -415,7 +380,6 @@ router.get("/courses", (req, res) => {
 });
 
 router.delete("/courses/:id", (req, res) => {
-  // const cid = req.params.id;
 
   const sql = "DELETE FROM courses WHERE id= ?";
 
@@ -532,7 +496,6 @@ router.post("/eventcommits/check", (req, res) => {
 });
 
 router.get("/forums", (req, res) => {
-  // const sql = "SELECT forum_topics.*, COUNT(forum_comments.id) AS comments_count FROM forum_topics LEFT JOIN forum_comments ON forum_topics.id = forum_comments.topic_id GROUP BY forum_topics.id ORDER BY forum_topics.id DESC";
   const sql =
     "SELECT forum_topics.*, COUNT(forum_comments.id) AS comments_count, users.name AS created_by FROM forum_topics LEFT JOIN forum_comments ON forum_topics.id = forum_comments.topic_id LEFT JOIN users ON forum_topics.user_id = users.id GROUP BY forum_topics.id ORDER BY forum_topics.id DESC";
   con.query(sql, (err, result) => {
@@ -558,7 +521,6 @@ router.delete("/forum/:id", (req, res) => {
 
 router.post("/topiccomments", (req, res) => {
   const { topic_id } = req.body;
-  // const sql = "SELECT * FROM forum_comments WHERE topic_id = ?";
   const sql =
     "SELECT forum_comments.*, users.name AS name FROM forum_comments LEFT JOIN users ON forum_comments.user_id = users.id WHERE topic_id = ?";
   con.query(sql, [topic_id], (err, result) => {
@@ -601,7 +563,6 @@ router.post("/view_forum", (req, res) => {
 });
 
 router.delete("/view_forum/:id", (req, res) => {
-  // const cid = req.params.id;
   const sql = "DELETE FROM forum_comments WHERE id= ?";
   con.query(sql, [req.params.id], (err, result) => {
     if (err) {
@@ -657,19 +618,6 @@ router.get("/users", (req, res) => {
     }
   });
 });
-
-// router.post('/manageuser', (req, res) => {
-//     const { name, email, password } = req.body;
-
-//     const sql = 'INSERT INTO forum_topics (name, email, password) VALUES (?, ?, ?)';
-//     con.query(sql, [title, userId, description], (err, result) => {
-//         if (err) {
-//             console.error('Error executing SQL query:', err);
-//             return res.status(500).json({ error: 'Database Error' });
-//         }
-//         return res.json({ message: 'New Forum added successfully', jobId: result.insertId });
-//     });
-// });
 
 router.put("/manageuser", async (req, res) => {
   try {
@@ -749,19 +697,6 @@ router.get("/gallery", (req, res) => {
   });
 });
 
-// router.post('/gallery', upload.single('image'), (req, res) => {
-//     const { about } = req.body;
-//     const imagePath = req.file.path;
-
-//     con.query('INSERT INTO gallery (image_path, about) VALUES (?, ?)', [imagePath, about], (err, result) => {
-//         if (err) {
-//             console.error('Error inserting into gallery:', err);
-//             res.status(500).json({ error: 'An error occurred' });
-//             return;
-//         }
-//         res.json({ message: 'Image uploaded successfully' });
-//     });
-// });
 
 router.delete("/gallery/:id", (req, res) => {
   const id = req.params.id;
@@ -883,7 +818,6 @@ router.get("/alumni_list", (req, res) => {
 
 router.put("/upaccount", avatarUpload.single("image"), async (req, res) => {
   try {
-    // const avatar = req.file.path ;
 
     const {
       name,
@@ -900,7 +834,6 @@ router.put("/upaccount", avatarUpload.single("image"), async (req, res) => {
     if (password) {
       hashedPassword = await bcrypt.hash(password, 10);
     }
-    // Update alumnus_bio table
     const asql =
       "UPDATE alumnus_bio SET name = ?, connected_to = ?, course_id = ?, email = ?, gender = ?, batch = ? WHERE id = ?";
     const avalues = [
@@ -919,21 +852,17 @@ router.put("/upaccount", avatarUpload.single("image"), async (req, res) => {
         return;
       }
 
-      // avatr
       if (req.file) {
         const avsql = "UPDATE alumnus_bio SET avatar = ? WHERE id = ?";
         const avvalues = [req.file.path, alumnus_id];
         con.query(avsql, avvalues, (err, result) => {
           if (err) {
             console.error("Error updating pic:", err);
-            // res.status(500).json({ error: 'pic error occurred' });
             return;
           }
-          // res.json({ message: 'pic updated successfully' });
         });
       }
 
-      // Update users table
       const usql = "UPDATE users SET name = ?, email = ? WHERE id = ?";
       const uvalues = [name, email, user_id];
       con.query(usql, uvalues, (err, result) => {
@@ -942,7 +871,6 @@ router.put("/upaccount", avatarUpload.single("image"), async (req, res) => {
           res.status(500).json({ error: "An error occurred" });
           return;
         }
-        // Update password in users table
         if (hashedPassword) {
           const psql = "UPDATE users SET password = ? WHERE id = ?";
           const pvalues = [hashedPassword, user_id];
@@ -965,73 +893,10 @@ router.put("/upaccount", avatarUpload.single("image"), async (req, res) => {
   }
 });
 
-// router.put('/upaccount', avatarUpload.single('image'), (req, res) => {
-//     try {
-//         // const avatar = req.file.path ;
-
-//         const { name, connected_to, course_id, email, gender, batch, password, alumnus_id } = req.body;
-
-//         // Update alumnus_bio table
-//         const asql = 'UPDATE alumnus_bio SET name = ?, connected_to = ?, course_id = ?, email = ?, gender = ?, batch = ? WHERE id = ?';
-//         const avalues = [name, connected_to, course_id, email, gender, batch, alumnus_id];
-//         con.query(asql, avalues, (err, result) => {
-//             if (err) {
-//                 console.error('Error updating alumnus_bio:', err);
-//                 res.status(500).json({ error: 'An error occurred' });
-//                 return;
-//             }
-
-//             // avatr
-//             if (req.file) {
-//                 const avsql = 'UPDATE alumnus_bio SET avatar = ? WHERE id = ?';
-//                 const avvalues = [req.file.path, alumnus_id];
-//                 con.query(avsql, avvalues, (err, result) => {
-//                     if (err) {
-//                         console.error('Error updating pic:', err);
-//                         // res.status(500).json({ error: 'pic error occurred' });
-//                         return;
-//                     }
-//                     // res.json({ message: 'pic updated successfully' });
-//                 });
-//             }
-
-//             // Update users table
-//             const usql = 'UPDATE users SET name = ?, email = ? WHERE id = ?';
-//             const uvalues = [name, email, alumnus_id];
-//             con.query(usql, uvalues, (err, result) => {
-//                 if (err) {
-//                     console.error('Error updating users:', err);
-//                     res.status(500).json({ error: 'An error occurred' });
-//                     return;
-//                 }
-//                 // Update password in users table
-//                 if (password) {
-//                     const psql = 'UPDATE users SET password = ? WHERE id = ?';
-//                     const pvalues = [password, alumnus_id];
-//                     con.query(psql, pvalues, (err, result) => {
-//                         if (err) {
-//                             console.error('Error updating password:', err);
-//                             res.status(500).json({ error: 'An error occurred' });
-//                             return;
-//                         }
-//                         res.json({ message: 'Account updated successfully' });
-//                     });
-//                 } else {
-//                     res.json({ message: 'Account updated successfully' });
-//                 }
-//             });
-//         });
-//     } catch (error) {
-//         console.error('Error updating account:', error);
-//         res.status(500).json({ error: 'An error occurred' });
-//     }
-// });
-
 router.get("/alumnusdetails", (req, res) => {
   const id = req.query.id;
   const sql = "SELECT * from alumnus_bio Where id=?";
   con.query(sql, [id], (err, result) => {
-    // console.log(result);
     if (err) return res.json({ Error: "Query Error" });
     if (result.length > 0) {
       return res.json(result);

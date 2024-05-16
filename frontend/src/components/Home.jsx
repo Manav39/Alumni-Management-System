@@ -7,9 +7,6 @@ import { FaCalendar, FaTimes } from 'react-icons/fa';
 import { useAuth } from '../AuthContext';
 import { useTheme } from '../ThemeContext';
 import campus from "../assets/uploads/campus.jpg";
-// import head_cover from "../assets/uploads/head_cover.jpg";
-// import img3 from "../assets/uploads/gallery/img3.jpg"
-
 const Home = () => {
     const { theme } = useTheme();
     const { isLoggedIn, isAdmin } = useAuth();;
@@ -21,12 +18,10 @@ const Home = () => {
         if (isLoggedIn) {
             const user_name = localStorage.getItem("user_name");
             if (location.state && location.state.action === 'homelogin') {
-                // console.log("location my::",location);
                 toast.success(`Welcome ${user_name}`);
             }
         }
         if (location.state && location.state.action === 'homelogout') {
-            // console.log("location my::",location);
             toast.info("Logout Success");
         }
         return () => {
@@ -154,28 +149,7 @@ const Home = () => {
                     </>}
                 </div>
             </section>
-            {/* <section className="page-section" id="about">
-                <div className="container">
-                    <div className="text-center">
-                        <h2 className="section-heading text-uppercase">About Us</h2>
-                        <h3 className="section-subheading text-muted">Learn more about our community</h3>
-                    </div>
-                </div>
-            </section>
-            <section className="page-section bg-light" id="faculties">
-                <div className="container">
-                    <h2 className="section-heading text-center">Our Efficient Faculties</h2>
-                    <hr className="divider my-4" />
-                    Placeholders for faculties content
-                </div>
-            </section>
-            <section className="page-section" id="forums">
-                <div className="container">
-                    <h2 className="section-heading text-center">Forums</h2>
-                    <hr className="divider my-4" />
-                    Placeholders for forums content
-                </div>
-            </section> */}
+            
         </div>
     )
 }

@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { FaBuilding, FaMapMarker, FaPlus, FaSearch } from 'react-icons/fa';
 import ViewJobs from '../admin/view/ViewJobs';
-// import { useNavigate } from 'react-router-dom';
 import ManageJobs from '../admin/save/ManageJobs';
 import { useAuth } from '../AuthContext';
 
@@ -44,7 +43,6 @@ const Careers = () => {
     }
 
     useEffect(() => {
-        // Filter the forum topics based on the search query
         const filteredCareer = jobs.filter(career =>
             career.job_title.toLowerCase().includes(searchQuery.toLowerCase()) ||
             career.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -66,7 +64,6 @@ const Careers = () => {
                                 {isLoggedIn ?
                                     <> {handleAdd ? <></> : (<button onClick={() => setHandleAdd(true)} className="btn btn-primary btn-block col-sm-4" type="button" id="new_career"><FaPlus /> Post a Job Opportunity</button>)}
                                     </> : <p className='text-white'>Please Login to post jobs.</p>}
-                                {/* <button onClick={()=>navigate("/jobs/add")} className="btn btn-primary btn-block col-sm-4" type="button" id="new_career"><FaPlus /> Post a Job Opportunity</button> */}
                             </div>
                         </div>
                     </div>
@@ -101,7 +98,6 @@ const Careers = () => {
                             </div>
                         </div>
                         {filteredJob.length > 0 ? <>
-                            {/* $event = $conn->query("SELECT c.*,u.name from careers c inner join users u on u.id = c.user_id order by id desc"); */}
                             {filteredJob.map((j, index) => (
                                 <div className="card job-list" key={index}>
                                     <div className="card-body">

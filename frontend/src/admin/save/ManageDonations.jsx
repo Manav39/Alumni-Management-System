@@ -2,13 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 import ReactQuill from 'react-quill';
-// import { useAuth } from '../../AuthContext';
-
 
 const ManageDonations = ({ setHandleAdd }) => {
-  // const { isLoggedIn, isAdmin } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const uid = localStorage.getItem("user_id");
@@ -44,11 +40,9 @@ const ManageDonations = ({ setHandleAdd }) => {
     e.preventDefault();
     try {
       if (location.state && location.state.action === 'edit') {
-        // Perform update operation
         await axios.put('http://localhost:3000/auth/managedonations', formData)
           .then((res) => toast.success(res.data.message))
       } else {
-        // Perform insert operation
         await axios.post('http://localhost:3000/auth/managedonations', formData)
           .then((res) => toast.success(res.data.message))
       }
@@ -59,7 +53,6 @@ const ManageDonations = ({ setHandleAdd }) => {
         total_amount: "",
         user_id: ""
       })
-      // Optionally, you can redirect the user to another page after successful submission
     } catch (error) {
       console.error('Error:', error);
       toast.error('An error occurred');
@@ -95,7 +88,6 @@ const ManageDonations = ({ setHandleAdd }) => {
           <div className="row form-group">
             <div className="col-md-8">
               <label className="control-label">Description</label>
-              {/* <textarea name="description" className="text-jqte form-control" value={formData.description} onChange={handleChange}></textarea> */}
               <ReactQuill
                 value={formData.description}
                 onChange={handleChangeDesc}

@@ -17,13 +17,9 @@ const ManageForum = ({ setHandleAdd }) => {
   useEffect(() => {
     if (location.state && location.state.status === 'edit') {
       setFormData(location.state.data);
-      // console.log(location);
     }
   }, [location.state]);
 
-  // const handleChange = (e) => {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
-  // };
   const handleBack = () => {
     if (location.pathname.startsWith("/dashboard")) {
       navigate("/dashboard/forum");
@@ -40,11 +36,9 @@ const ManageForum = ({ setHandleAdd }) => {
     const userId = localStorage.getItem("user_id");
     try {
       if (location.state && location.state.status === 'edit') {
-        // Perform update operation
         await axios.put('http://localhost:3000/auth/manageforum', formData)
           .then((res) => toast.success(res.data.message))
       } else {
-        // Perform insert operation
         await axios.post('http://localhost:3000/auth/manageforum', {
           title: formData.title,
           description: formData.description,
@@ -84,7 +78,6 @@ const ManageForum = ({ setHandleAdd }) => {
         <div className="row form-group">
           <div className="col-md-12">
             <label className="control-label">Description</label>
-            {/* <textarea name="description" className="text-jqte form-control" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })}></textarea> */}
             <ReactQuill
               value={formData.description}
               onChange={handleChange}

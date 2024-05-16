@@ -48,22 +48,11 @@ const AdminAlumni = () => {
               <div className="card">
                 <div className="card-header">
                   <b>List of Alumni ({alumni.length})</b>
-                  {/* <span className="float:right"><Link className="btn btn-primary btn-block btn-sm col-sm-2 float-right" id="new_alumni">
-                    <FaPlus /> New Entry
-                  </Link></span> */}
                 </div>
                 <div className="card-body">
                   <div className="table-responsive">
                     <table className="table table-responsive-sm table-condensed table-bordered table-hover">
 
-                      {/* <colgroup>
-								<col width="5%"/>
-								<col width="10%"/>
-								<col width="15%"/>
-								<col width="15%"/>
-								<col width="30%"/>
-								<col width="15%"/>
-							</colgroup> */}
                       <thead>
                         <tr >
                           <th className="text-center">#</th>
@@ -76,7 +65,6 @@ const AdminAlumni = () => {
                       </thead>
                       <tbody>
                         {alumni.length > 0 ? <>
-                          {/* $alumni = $conn->query("SELECT a.*,c.course,Concat(a.lastname,', ',a.firstname,' ',a.middlename) as name from alumnus_bio a inner join courses c on c.id = a.course_id order by Concat(a.lastname,', ',a.firstname,' ',a.middlename) asc"); */}
                           {alumni.map((a, index) => (
 
                             <tr key={index}>

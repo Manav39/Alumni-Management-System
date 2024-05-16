@@ -34,7 +34,6 @@ const Gallery = () => {
                 <div className="row-items">
                     <div className="col-lg-12">
                         <div className="row">
-                            {/* <div className="col-md-6"> */}
                             {gallery.map((g, index) => (
                                 <div className="col-md-6 padzero" key={index}>
                                     <div className="card gallery-list"  >
@@ -54,7 +53,6 @@ const Gallery = () => {
                                     </div>
                                 </div>))}
                             <br />
-                            {/* </div> */}
                         </div>
                     </div>
                 </div>

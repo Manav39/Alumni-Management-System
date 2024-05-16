@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { FaAngleDown, FaCog, FaPowerOff, FaBars } from 'react-icons/fa'; // Import FaBars from react-icons
+import { FaAngleDown, FaCog, FaPowerOff, FaBars } from 'react-icons/fa';
 import { MdDashboard } from "react-icons/md";
 import logo from "../assets/uploads/logo.png";
 import { useAuth } from '../AuthContext';
@@ -33,19 +33,6 @@ const Header = () => {
         setName(user_name);
     }, [location.state]);
 
-    // useEffect(() => {
-    //     const handleClickOutside = (event) => {
-    //         if (navRef.current && !navRef.current.contains(event.target)) {
-    //             setIsMenuOpen(false);
-    //         }
-    //     };
-
-    //     document.addEventListener("mousedown", handleClickOutside);
-    //     return () => {
-    //         document.removeEventListener("mousedown", handleClickOutside);
-    //     };
-    // }, [navRef]);
-
     const handleLogout = () => {
         axios.post("http://localhost:3000/auth/logout")
             .then((res) => {
@@ -66,11 +53,6 @@ const Header = () => {
                     </button>
                     <div ref={navRef} className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarResponsive">
                         <ul className="navbar-nav ml-auto my-2 my-lg-0">
-                            {/* <li className="nav-item">
-                                <button onClick={toggleTheme} className="btn btn-sm btn-primary">
-                                    {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
-                                </button>
-                            </li> */}
                             <li className="nav-item"><Link onClick={toggleMenu} className={`nav-link js-scroll-trigger ${isActive("/")}`} to="/">Home</Link></li>
                             <li className="nav-item"><Link onClick={toggleMenu} className={`nav-link js-scroll-trigger ${isActive("/alumni")}`} to="/alumni">Alumni</Link></li>
                             <li className="nav-item"><Link onClick={toggleMenu} className={`nav-link js-scroll-trigger ${isActive("/gallery")}`} to="/gallery">Gallery</Link></li>

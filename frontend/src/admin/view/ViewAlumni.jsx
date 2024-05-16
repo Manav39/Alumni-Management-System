@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-// import { baseUrl } from '../../utils/globalurl';
 
 
 const ViewAlumni = () => {
@@ -16,13 +15,8 @@ const ViewAlumni = () => {
             setAlumni(location.state.data);
             setAccStatus(location.state.data.status);
 
-            // console.log(location.state.data.status);
         }
     }, [location.state]);
-
-    // const baseurl= baseUrl;
-    // console.log(baseurl,"url");
-
     const handleStatus = (num) => {
         console.log(num);
         axios.put('http://localhost:3000/auth/viewalumni', { status: num, id: alumni.id })

@@ -60,15 +60,6 @@ function AppRouter() {
   const location = useLocation();
   const isDashboardRoute = location.pathname.startsWith("/dashboard");
 
-  // useEffect(() => {
-  //   const user = localStorage.getItem('user_type');
-  //   // This effect is now handled in AuthProvider
-  // }, []);
-
-  // setTimeout(() => {
-    
-  // }, 1000);
-
   return (
     <>
       {!isDashboardRoute && <Header />}
@@ -85,9 +76,7 @@ function AppRouter() {
         <Route path="/signup" element={<Signup />} />
         {isLoggedIn && isAdmin && (
           <Route path="/dashboard" element={
-            // <PrivateRoute>
             <Dashboard />
-            //  {/* </PrivateRoute> */}
           } >
             <Route path="" element={<AdminHome />} />
             <Route path="/dashboard/courses" element={<AdminCourses />} />
@@ -111,7 +100,6 @@ function AppRouter() {
         {isLoggedIn && <Route path="account" element={<MyAccount />} />}
         <Route path="forum/view" element={<View_Forum />} />
         <Route path="jobs/add" element={<ManageJobs />} />
-        {/* <Route path="jobs/add" element={<Manage_Career />} /> */}
 
       </Routes>
       {!isDashboardRoute && <Footer />}

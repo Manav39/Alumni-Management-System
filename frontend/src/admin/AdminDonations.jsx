@@ -3,7 +3,6 @@ import axios from 'axios';
 import { FaPlus } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 import ViewDonations from './view/ViewDonations';
 
 const AdminDonations = () => {
@@ -21,7 +20,6 @@ const AdminDonations = () => {
         setSelectedDonation(null);
         setIsModalOpen(false);
     };
-    // const location = useLocation();
 
     useEffect(() => {
         axios.get("http://localhost:3000/auth/donations")
@@ -31,12 +29,6 @@ const AdminDonations = () => {
             })
             .catch((err) => console.log(err));
     }, []);
-
-    // useEffect(() => {
-    //   if (location.state && location.state.showToast) {
-    //     toast(location.state.message);
-    //   }
-    // }, [location.state]);
 
     const handleDelete = async (id) => {
         try {

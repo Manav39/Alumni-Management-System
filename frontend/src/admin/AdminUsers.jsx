@@ -29,14 +29,6 @@ const AdminUsers = () => {
     <div className="container-fluid mt-4">
       <ToastContainer position="top-center" />
 
-      {/* <div className="row">
-        <div className="col-lg-12">
-          <button onClick={()=>navigate("/dashboard/users/manage")} className="btn btn-primary float-right btn-sm" id="new_user">
-            <FaPlus /> New user
-          </button>
-        </div>
-      </div> */}
-
       <div className="row mt-4">
         <div className="col-lg-12 padzero">
           <div className="card tablecard">

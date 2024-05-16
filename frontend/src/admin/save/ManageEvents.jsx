@@ -43,14 +43,9 @@ const ManageEvents = () => {
         console.log(eventData);
         try {
             if (eventData.id != "") {
-
-                // if (location.state && location.state.action === 'edit') {
-                // Perform update operation
                 await axios.put('http://localhost:3000/auth/events', eventData)
                     .then((res) => toast.success(res.data.message))
-                // }
             } else {
-                // Perform insert operation
                 await axios.post('http://localhost:3000/auth/events', eventData)
                     .then((res) => toast.success(res.data.message))
             }
@@ -98,7 +93,6 @@ const ManageEvents = () => {
                                 <div className="form-group row">
                                     <div className="col-md-10">
                                         <label htmlFor="" className="control-label">Description</label>
-                                        {/* <textarea name="content" id="content" className="form-control jqte" cols="30" rows="5" value={eventData.content} required onChange={(e) => setEventData({ ...eventData, content: e.target.value })}></textarea> */}
                                         <ReactQuill
                                             value={eventData.content}
                                             onChange={handleChange}
@@ -106,33 +100,15 @@ const ManageEvents = () => {
                                         />
                                     </div>
                                 </div>
-                                {/* <div className=" row form-group">
-                                    <div className="col-md-5">
-                                        <label htmlFor="" className="control-label">Banner Image</label>
-                                        <input type="file" className="form-control" name="banner" />
-                                    </div>
-
-                                    <div className="col-md-5">
-                                        <img src="" alt="banner-img" id="banner-field" />
-                                    </div>
-                                </div> */}
                                 <div className="">
-                                    {/* <div className="col-md-12"> */}
                                     <button className="btn btn-primary mr-2" type='submit' onClick={handleSubmit}> Save</button>
                                     <button className="btn btn-danger " onClick={handleBack}>Cancel</button>
-
-                                    {/* </div> */}
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/* <div className="imgF" style={{ display: 'none' }} id="img-clone">
-                <span className="rem badge badge-primary" ><FaTimes /></span>
-
-            </div> */}
         </>
     )
 }

@@ -85,7 +85,6 @@ const ViewDonations = ({ donation, closeModal }) => {
                 <strong>Amount Required: </strong>
                 {donation.total_amount}
               </p>
-              {/* <p><strong>Amount Collected:</strong> <FaMapMarker /> {donation.amount_collected}</p> */}
               <hr className="divider" />
               <div
                 className="description"

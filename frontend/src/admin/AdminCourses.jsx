@@ -17,18 +17,6 @@ const AdminCourses = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  // const handleSave = (e) => {
-  //   e.preventDefault();
-  //   axios.post("http://localhost:3000/auth/courses/", name)
-  //     .then((res) => {
-  //       const newCourse = { id: res.data, course: name.course };
-  //       setCourses([...courses, newCourse]);
-  //       toast.success("Course saved successfully");
-  //       setName({ course: '' }); // Clear the input field
-  //     })
-  //     .catch((err) => console.log(err));
-  // }
-
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(`http://localhost:3000/auth/courses/${id}`);
@@ -39,12 +27,7 @@ const AdminCourses = () => {
       toast.error("An error occurred");
     }
   }
-  // const handleInput = (cname, cid) => {
-  //   setName({
-  //     course: cname, id: cid
-  //   })
-  //   // document.getElementsByName("course").values = cname;
-  // }
+
   const handleInput = (cname, cid) => {
     setName({
       course: cname,
@@ -58,7 +41,6 @@ const AdminCourses = () => {
     console.log(name);
     try {
       if (name.id) {
-        // If id exists, it's an update operation
         const res =  await axios.put(`http://localhost:3000/auth/courses`, name);
         toast.success("Course updated successfully");
         setCourses(prevCourses => {
@@ -77,9 +59,7 @@ const AdminCourses = () => {
         const newCourse = { id: res.data, course: name.course };
         setCourses([...courses, newCourse]);
       }
-      setName({ ...name, course: '', id: '' }); // Reset the input fields
-      // const newCourse = { id: res.data, course: name.course };
-      // setCourses([...courses, newCourse]);
+      setName({ ...name, course: '', id: '' }); 
     } catch (error) {
       console.error('Error:', error);
       toast.error('An error occurred');
@@ -106,8 +86,7 @@ const AdminCourses = () => {
                       type="text"
                       className="form-control"
                       name="course"
-                      value={name.course} // Value should come from state
-                      // onChange={(e) => setName({ course: e.target.value })}
+                      value={name.course}
                       onChange={(e) => setName({ ...name, course: e.target.value })}
                       required
                     />
@@ -118,7 +97,6 @@ const AdminCourses = () => {
                     <div className="col-md-6">
                       <button
                         className="btn btn-sm btn-primary btn-block"
-                        // onClick={handleSave}
                         onClick={(e) => handleSubmit(e, { course: name.course })}
                       >
                         Save

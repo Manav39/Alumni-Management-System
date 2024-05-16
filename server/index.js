@@ -18,7 +18,6 @@ app.use(
 app.use(express.json());
 
 app.use("/auth", adminRouter);
-// app.use(express.static('Public'));
 app.use("/Public", express.static("Public"));
 
 app.post("/pay", async (req, res) => {

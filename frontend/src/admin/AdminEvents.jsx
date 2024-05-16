@@ -24,15 +24,13 @@ const AdminEvents = () => {
       .catch((err) => console.log(err))
   }
 
-  // Function to format the timestamp
   const formatDate = (timestamp) => {
     const options = { month: 'long', day: 'numeric', year: 'numeric' };
     return new Date(timestamp).toLocaleDateString('en-US', options);
   };
 
-  // Function to truncate the content and remove HTML tags
   const CutContent = (content, maxLength) => {
-    const strippedContent = content.replace(/<[^>]+>/g, ''); // Remove HTML tags
+    const strippedContent = content.replace(/<[^>]+>/g, '');
     if (strippedContent.length > maxLength) {
       return strippedContent.substring(0, maxLength) + '...';
     }

@@ -32,7 +32,6 @@ const AlumniList = () => {
                 list.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 list.course.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 list.batch.toString().includes(searchQuery)
-                // list.batch.toString() === searchQuery
             );
             setFilteredAlumnni(filteredlist);
         }

@@ -26,7 +26,6 @@ const MyAccount = () => {
                 setCourses(coursesRes.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
-                // Optionally display an error message to the user
             }
         };
         fetchData();
@@ -48,9 +47,7 @@ const MyAccount = () => {
         const pswrd = document.getElementById("pswrd").value
         try {
             const formData = new FormData();
-            // if (file) {
-                formData.append('image', file);
-            // }
+            formData.append('image', file);
             formData.append('name', acc.name);
             formData.append('connected_to', acc.connected_to);
             formData.append('course_id', acc.course_id);
@@ -60,8 +57,6 @@ const MyAccount = () => {
             formData.append('batch', acc.batch);
             formData.append('alumnus_id', alumnus_id);
             formData.append('user_id', user_id);
-            // console.log(pswrd);
-            // console.log(acc.password);
 
             const response = await axios.put("http://localhost:3000/auth/upaccount", formData, {
                 headers: {
@@ -157,7 +152,6 @@ const MyAccount = () => {
                                 <div className="form-group row">
                                     <label htmlFor="" className="col-sm-2 col-form-label">Password</label>
                                     <div className="col-sm-10">
-                                    {/* <input onChange={handleChange} type="email" className="form-control" name="email" placeholder="Enter your email" required value={acc.password} /> */}
                                         <input onChange={handleChange} id='pswrd'  type="password" className="form-control" name="password" placeholder="Enter your password" />
                                         <small className="form-text text-info fst-italic ">Leave this blank if you dont want to change your password</small>
                                     </div>

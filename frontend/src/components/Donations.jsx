@@ -62,12 +62,7 @@ const Donations = () => {
                         <div className="col-lg-8 align-self-end mb-4 page-title">
                             <h3 className="text-white">Donations</h3>
                             <hr className="divider my-4" />
-                            <div className="row col-md-12 mb-2 justify-content-center">
-                                {isLoggedIn ?
-                                    <> {handleAdd ? <></> : (<button onClick={() => setHandleAdd(true)} className="btn btn-primary btn-block col-sm-4" type="button" id="new_career"><FaPlus /> Donate to VJTI college</button>)}
-                                    </> : <p className='text-white'>Please Login to Donate.</p>}
-                                {/* <button onClick={()=>navigate("/jobs/add")} className="btn btn-primary btn-block col-sm-4" type="button" id="new_career"><FaPlus /> Post a Job Opportunity</button> */}
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

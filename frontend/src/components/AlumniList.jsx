@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import defaultavatar from "../assets/uploads/defaultavatar.jpg"
+import defaultavatar from "../assets/uploads/defaultavatar.jpg";
 
 
 const AlumniList = () => {

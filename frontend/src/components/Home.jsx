@@ -6,7 +6,7 @@ import { FiBook, FiUsers, FiClipboard, FiTool } from 'react-icons/fi';
 import { FaCalendar, FaTimes } from 'react-icons/fa';
 import { useAuth } from '../AuthContext';
 import { useTheme } from '../ThemeContext';
-import imgcs from "../assets/uploads/imgcs.jpg";
+import campus from "../assets/uploads/campus.jpg";
 // import head_cover from "../assets/uploads/head_cover.jpg";
 // import img3 from "../assets/uploads/gallery/img3.jpg"
 
@@ -61,12 +61,12 @@ const Home = () => {
     return (
         <div>
             <ToastContainer hideProgressBar="true" position="top-center" pauseOnHover="false" pauseOnFocusLoss="false" />
-            <header className="masthead" style={{ backgroundImage: `url(${imgcs})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "100vh" }}>
+            <header className="masthead" style={{ backgroundImage: `url(${campus})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "100vh" }}>
                 <div className="container h-100">
                     <div className="row h-100 align-items-center justify-content-center">
                         <div className="col-lg-8  text-center">
                             <h1 className="text-white font-weight-bold display-3 mb-4">Welcome to VJTI</h1>
-                            <p className="text-white-75 font-weight-light lead mb-5">Connecting CS alumni across the globe</p>
+                            <p className="text-white-75 font-weight-bold lead mb-5">Connecting Alumnis across the globe</p>
                             {!isAdmin && <Link className="btn btn-primary btn-xl" to="about">Find Out More</Link>}
                             {!isLoggedIn && <Link className="btn btn-info  ms-2   btn-xl" to="login">Login</Link>}
                             {isLoggedIn && isAdmin && <Link className="btn btn-primary btn-xl" to="dashboard">Admin Dashboard</Link>}

@@ -119,7 +119,7 @@ const Donations = () => {
                                 </div>))}</> : <>
                             <div className="d-flex flex-column justify-content-center align-items-center">
                                 <p >{searchQuery}</p>
-                                <h4 className='text-info-emphasis'>No Job Available</h4>
+                                <h4 className='text-info-emphasis'>No Donations Available</h4>
                             </div>
                         </>}
                         <br />

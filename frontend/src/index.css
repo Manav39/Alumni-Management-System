@@ -119,9 +119,6 @@ header.masthead>.container {
     transform: translateX(0);
 }
 
-.main.sidebar-open {
-}
-
 @media (max-width: 990px) {
     .sidebar {
         width: 170px;

@@ -60,7 +60,7 @@ const Header = () => {
         <>
             <nav className={`navbar navbar-expand-lg navbar-${theme} fixed-top`} id="mainNav">
                 <div className="container">
-                    <Link className="navbar-brand js-scroll-trigger" to="/"><img src={logo} className='logoimg' /></Link>
+                    <Link className="navbar-brand js-scroll-trigger" to="/"><img src={logo} className='' style={{ width: 50 }}/></Link>
                     <button className="navbar-toggler navbar-light" type="button"  >
                         <Hamburger  hideOutline={false} rounded color="#FFFFFF" toggled={isMenuOpen} toggle={setIsMenuOpen}  />
                     </button>

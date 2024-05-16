@@ -89,33 +89,34 @@ const AlumniList = () => {
                                         {a.avatar ?
                                             <img
                                                 src={`http://localhost:3000/${a.avatar}`}
-                                                className="card-img-top img-fluid alimg "
+                                                style={{ objectFit: "cover" }}
+                                                className="card-img-top img-fluid alimg mt-3"
                                                 alt="avatar"
                                             /> : <>
                                                 <img
                                                     src={defaultavatar}
-                                                    className="card-img-top img-fluid alimg "
+                                                    className="card-img-top img-fluid alimg mt-3"
                                                     alt="avatar"
                                                 />
                                             </>}
                                     </center>
                                     <div className="card-body">
-                                        <h5 className="card-title text-center pad-zero ">{a.name} <small>
+                                        <h5 className="card-title text-center pad-zero h3">{a.name} <small>
                                             <i className={`badge badge-primary ${a.status === 1 ? '' : 'd-none'}`}>
                                                 Verified
                                             </i>
                                         </small></h5>
 
-                                        <p className="card-text">
+                                        <p className="card-text h5">
                                             <strong>Email:</strong> {a.email}
                                         </p>
-                                        {a.course && <p className="card-text">
+                                        {a.course && <p className="card-text h5">
                                             <strong>Course:</strong> {a.course}
                                         </p>}
-                                        {a.batch != "0000" && <p className="card-text">
+                                        {a.batch != "0000" && <p className="card-text h5">
                                             <strong>Batch:</strong> {a.batch}
                                         </p>}
-                                        {a.connected_to && <p className="card-text">
+                                        {a.connected_to && <p className="card-text h5">
                                             <strong>Currently working in/as:</strong> {a.connected_to}
                                         </p>}
                                     </div>

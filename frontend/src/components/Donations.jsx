@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { FaBuilding, FaMapMarker, FaPlus, FaSearch } from 'react-icons/fa';
+import { FaBuilding, FaMapMarker, FaPlus, FaSearch, FaRupeeSign } from 'react-icons/fa';
 import ViewDonations from '../admin/view/ViewDonations';
 // import { useNavigate } from 'react-router-dom';
 import ManageJobs from '../admin/save/ManageJobs';
@@ -102,18 +102,18 @@ const Donations = () => {
                                     <div className="card-body">
                                         <div className="row  align-items-center justify-content-center text-center h-100">
                                             <div className="">
-                                                <h3><b className="filter-txt">{j.title}</b></h3>
+                                                {/* <h3><b className="filter-txt">{j.title}</b></h3> */}
                                                 <div>
-                                                    <span className="filter-txt"><small><b><FaBuilding /> {j.description}</b></small></span>
-                                                    <span className="filter-txt"><small><b><FaMapMarker />{j.total_amount}</b></small></span>
+                                                    <span className="filter-txt h4 mr-5"><strong><b><FaBuilding /> {j.title}</b></strong></span>
+                                                    <span className="filter-txt h4"><strong><b><FaRupeeSign />{j.amount_collected} / {j.total_amount}</b></strong></span>
                                                 </div>
                                                 <hr />
-                                                <p dangerouslySetInnerHTML={{ __html: j.description }} className="truncate filter-txt" ></p>
+                                                <p dangerouslySetInnerHTML={{ __html: j.description }} className="truncate filter-txt h5" ></p>
                                                 <br />
                                                 <hr className="divider" style={{ maxWidth: "calc(80%)" }} />
                                                 <div className='jobbtn d-flex justify-content-between align-items-center '>
-                                                    <span className="badge badge-info ">
-                                                        <b><i>Posted by: {localStorage.getItem("user_name")}</i></b>
+                                                    <span className="badge badge-info">
+                                                        <b><i>Posted by: {j.name}</i></b>
                                                     </span>
                                                     <button className="btn btn-sm  btn-primary " onClick={() => openModal(j)}>Read More</button>
                                                 </div>

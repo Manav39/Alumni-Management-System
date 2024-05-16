@@ -109,11 +109,11 @@ const Careers = () => {
                                             <div className="">
                                                 <h3><b className="filter-txt">{j.title}</b></h3>
                                                 <div>
-                                                    <span className="filter-txt"><small><b><FaBuilding /> {j.company}</b></small></span>
-                                                    <span className="filter-txt"><small><b><FaMapMarker />{j.location}</b></small></span>
+                                                    <span className="filter-txt h3 mr-5"><small><b><FaBuilding /> {j.company}</b></small></span>
+                                                    <span className="filter-txt h3"><small><b><FaMapMarker />{j.location}</b></small></span>
                                                 </div>
                                                 <hr />
-                                                <p dangerouslySetInnerHTML={{ __html: j.description }} className="truncate filter-txt" ></p>
+                                                <p dangerouslySetInnerHTML={{ __html: j.description }} className="truncate filter-txt h4" ></p>
                                                 <br />
                                                 <hr className="divider" style={{ maxWidth: "calc(80%)" }} />
                                                 <div className='jobbtn d-flex justify-content-between align-items-center '>

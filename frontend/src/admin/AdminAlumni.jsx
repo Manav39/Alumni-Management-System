@@ -80,7 +80,7 @@ const AdminAlumni = () => {
                           {alumni.map((a, index) => (
 
                             <tr key={index}>
-                              <td className="text-center">1</td>
+                              <td className="text-center">{index+1}</td>
                               <td className="text-center">
                                 <div className="avatar">
                                   {a.avatar ? <img src={`http://localhost:3000/${a.avatar}`} className="gimg" alt="avatar" /> :

@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import defaultavatar from "../assets/uploads/defaultavatar.jpg";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 
 const AlumniList = () => {
@@ -119,6 +121,22 @@ const AlumniList = () => {
                                         {a.connected_to && <p className="card-text h5">
                                             <strong>Currently working in/as:</strong> {a.connected_to}
                                         </p>}
+
+                                        <h5 className="card-title text-center pad-zero h3">
+                                            <small>
+                                                <a href={`http://github.com/${a.name}`} target="_blank" style={{ color: "inherit" }}>
+                                                    <i style={{ marginRight: "30px"}}>
+                                                        <FaGithub />
+                                                    </i>
+                                                </a>
+                                                <a href={`http://linkedin.com/${a.name}`} target="_blank" style={{ color: "inherit" }}>
+                                                    <i style={{ marginLeft: "30px" }}>
+                                                        <FaLinkedin />
+                                                    </i>
+                                                </a>
+                                            </small>
+                                        </h5>
+
                                     </div>
                                 </div>
                             </div>

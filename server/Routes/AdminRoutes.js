@@ -319,11 +319,10 @@ router.post("/adddonor", (req, res) => {
 
 router.put("/updatedonation", (req, res) => {
   const { id, amount } = req.body;
-  console.log(id, amount);
   if (id) {
     const sql =
-      "UPDATE donations set total_amount = total_amount - ? ,amount_collected = amount_collected + ? WHERE id = ?";
-    con.query(sql, [amount, amount, id], (err, result) => {
+      "UPDATE donations set amount_collected = amount_collected + ? WHERE id = ?";
+    con.query(sql, [amount, id], (err, result) => {
       if (err) {
         console.error("Error executing SQL query:", err);
         return res.status(500).json({ error: "Database Error" });

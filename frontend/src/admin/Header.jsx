@@ -34,7 +34,7 @@ const Header = ({ toggleSidebar }) => {
 
             <div className="d-flex align-items-center justify-content-between">
                 <FaBars className="bi bi-list toggle-sidebar-btn d-lg-none" onClick={toggleSidebar} />
-                    <img className='dlimg' src={logo} alt="" />
+                    <img className='dlimg' style={{ height: "50px", marginRight: "20px" }} src={logo} alt="" />
                 <div className="logo d-flex align-items-center">
                     <span className="d-none d-lg-block">Dashboard</span>
                 </div>

@@ -6,7 +6,6 @@ const ViewDonations = ({ donation, closeModal }) => {
 
   const handlePay = async (e) => {
     const currency = "INR";
-    setAmount(amount * 100);
     const response = await fetch("http://localhost:3000/pay", {
       method: "POST",
       headers: {
@@ -19,7 +18,6 @@ const ViewDonations = ({ donation, closeModal }) => {
     });
 
     const order = await response.json();
-    console.log("order", order);
 
     var option = {
       key: "",
@@ -31,7 +29,7 @@ const ViewDonations = ({ donation, closeModal }) => {
         "https://vjti.ac.in/wp-content/uploads/oldupload/cropped-New-VJTI-Logo_1-1-60x87.jpg",
       order_id: order.id,
       handler: async function (res) {
-        alert("Success");
+        window.location.reload();
       },
     };
     var rzp1 = new Razorpay(option);
@@ -80,11 +78,11 @@ const ViewDonations = ({ donation, closeModal }) => {
           <div className="modal-body">
             <div className="job-details">
               <p>
-                <strong>Title:</strong>
+                <strong>Title: </strong>
                 {donation.title}
               </p>
               <p>
-                <strong>Amount Required:</strong>
+                <strong>Amount Required: </strong>
                 {donation.total_amount}
               </p>
               {/* <p><strong>Amount Collected:</strong> <FaMapMarker /> {donation.amount_collected}</p> */}
@@ -99,17 +97,17 @@ const ViewDonations = ({ donation, closeModal }) => {
               </div>
             </div>
           </div>
-          <div style={{ display: "flex", marginLeft: "50px", gap: "1rem" }}>
+          <div style={{ display: "flex", marginLeft: "50px", gap: "1rem", marginBottom: "35px" }}>
             <input
-              onChange={(e) => setAmount(e.target.value)}
-              type="text"
+              onChange={(e) => setAmount(e.target.value * 100)}
+              type="number"
               className="form-control"
               placeholder="Enter the amount you want to donate"
               style={{ width: "600px" }}
             />
             <button
               className="btn btn-secondary"
-              style={{ width: "60px", backgroundColor: "green" }}
+              style={{ width: "80px", backgroundColor: "green" }}
               type="button"
               onClick={handlePay}
             >
@@ -121,6 +119,7 @@ const ViewDonations = ({ donation, closeModal }) => {
               className="btn btn-secondary"
               type="button"
               onClick={closeModal}
+              style={{ marginRight: "40px", width: "80px" }}
             >
               Close
             </button>

@@ -45,7 +45,7 @@ const Gallery = () => {
                                             <div className="row align-items-center justify-content-center text-center h-100">
                                                 <div className="">
                                                     <div>
-                                                        <span className="truncate" style={{ fontSize: "inherit" }}><small>{g.about}</small></span>
+                                                        <span className="truncate" style={{ fontSize: "30px" }}><small>{g.about}</small></span>
                                                         <br />
                                                     </div>
                                                 </div>

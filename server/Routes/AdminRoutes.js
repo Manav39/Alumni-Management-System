@@ -30,7 +30,6 @@ const galleryStorage = multer.diskStorage({
 });
 const galleryUpload = multer({ storage: galleryStorage });
 
-
 router.post("/login", (req, res) => {
   const sql = "SELECT * from users Where email=?";
   con.query(sql, [req.body.email], (err, result) => {
@@ -71,10 +70,40 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.post("/donordetails", async (req, res) => {
+  const { id } = req.body;
+  try {
+    const sql = `
+   SELECT 
+    u.*,
+    SUM(d.amount_donated) AS total_donation_amount
+    FROM 
+        users u
+    JOIN 
+        donors d ON u.id = d.user_id
+    WHERE 
+        d.donated_to_id = ?
+    GROUP BY 
+        u.id
+    ORDER BY 
+        total_donation_amount DESC;
+
+    `;
+
+    con.query(sql, [id], (err, result) => {
+      if (err) {
+        console.error("Error executing SQL query:", err);
+        return res.status(500).json({ error: "Query Error" });
+      }
+      res.json(result);
+    });
+  } catch (e) {}
+});
+
 router.post("/signup", async (req, res) => {
   const { name, email, password, userType, course_id } = req.body;
   try {
-    const hashedPassword = await bcrypt.hash(password, 10); 
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     const sql = "SELECT * from users Where email=?";
     con.query(sql, [email], async (err, result) => {
@@ -168,7 +197,9 @@ router.get("/counts", (req, res) => {
             (SELECT COUNT(*) FROM careers) AS jobCount,
             (SELECT COUNT(*) FROM events) AS eventCount,
             (SELECT COUNT(*) FROM events WHERE schedule >= CURDATE()) AS upeventCount,
-            (SELECT COUNT(*) FROM alumnus_bio) AS alumniCount;
+            (SELECT COUNT(*) FROM alumnus_bio) AS alumniCount,
+            (SELECT COUNT(*) FROM courses) AS CourseCount,
+            (SELECT SUM(amount_collected) FROM donations) AS TotalDonations;
     `;
 
   con.query(sql, (err, result) => {
@@ -183,6 +214,8 @@ router.get("/counts", (req, res) => {
       events: result[0].eventCount,
       upevents: result[0].upeventCount,
       alumni: result[0].alumniCount,
+      donate: result[0].TotalDonations,
+      course: result[0].CourseCount,
     };
 
     res.json(counts);
@@ -190,7 +223,6 @@ router.get("/counts", (req, res) => {
 });
 
 router.get("/jobs", (req, res) => {
-
   const sql = `
     SELECT careers.*, users.name, users.email
     FROM careers
@@ -267,7 +299,6 @@ router.put("/managedonations", (req, res) => {
 
 router.post("/adddonor", (req, res) => {
   const { amount_donated, user_id, donated_to_id } = req.body;
-  console.log(user_id);
   const sql =
     "INSERT INTO donors (amount_donated, user_id, donated_to_id) VALUES (?, ?, ?)";
   con.query(sql, [amount_donated, user_id, donated_to_id], (err, result) => {
@@ -380,7 +411,6 @@ router.get("/courses", (req, res) => {
 });
 
 router.delete("/courses/:id", (req, res) => {
-
   const sql = "DELETE FROM courses WHERE id= ?";
 
   con.query(sql, [req.params.id], (err, result) => {
@@ -697,7 +727,6 @@ router.get("/gallery", (req, res) => {
   });
 });
 
-
 router.delete("/gallery/:id", (req, res) => {
   const id = req.params.id;
 
@@ -818,7 +847,6 @@ router.get("/alumni_list", (req, res) => {
 
 router.put("/upaccount", avatarUpload.single("image"), async (req, res) => {
   try {
-
     const {
       name,
       connected_to,

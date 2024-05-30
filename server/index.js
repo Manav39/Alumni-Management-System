@@ -3,7 +3,7 @@ import cors from "cors";
 import Razorpay from "razorpay";
 import { adminRouter } from "./Routes/AdminRoutes.js";
 import dotenv from "dotenv";
-
+dotenv.config();
 dotenv.config();
 const app = express();
 
@@ -46,6 +46,10 @@ app.post("/pay", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.get("/", (req, res) => {
+  res.send("Server is running");
+});
+
+app.listen(process.env.PORT, (req, res) => {
   console.log("server is running");
 });

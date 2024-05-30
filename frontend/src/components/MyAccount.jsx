@@ -55,13 +55,15 @@ const MyAccount = () => {
             formData.append('gender', acc.gender);
             formData.append('password', pswrd);
             formData.append('batch', acc.batch);
-            formData.append('alumnus_id', alumnus_id);
+            formData.append('alumnus_id', alumnus_id)
             formData.append('user_id', user_id);
 
             const response = await axios.put("http://localhost:3000/auth/upaccount", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
+
+                
             });
 
             toast.success(response.data.message)

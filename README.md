@@ -2,8 +2,6 @@
 
 Welcome to the **Alumni Management System** repository! This system is designed to assist universities/colleges in managing their alumni data effectively. The system consists of two main components: frontend and server.
 
-![alumni](https://github.com/Manav39/Alumni-Management-System/assets/90371681/5fd0855e-6c7f-4719-9bd7-4c2c53aa6e64)
-
 ## 🎯 Project Overview 
 
 The Alumni Management System has been developed with the following key features:
@@ -52,9 +50,36 @@ To set up the Alumni Management System locally, follow these steps:
 4. Import the `wt_lab_exam.sql` file into your SQL database.
 5. Configure the server to connect to your database.
 6. Start the frontend and backend servers with these commands: `npm run dev` in `frontend` and `npm start` in `server` folder.
+   
+![image6](https://github.com/Manav39/Alumni-Management-System/assets/90371681/b9032048-1bfe-4983-a6b0-abcbb478171c)
 
-## 🤝 Contributing
+![image1](https://github.com/Manav39/Alumni-Management-System/assets/90371681/efaf5698-eaec-4d0f-a4c6-3d482a1fb938)
 
-Contributions to the Alumni Management System are welcome! If you have any ideas, bug fixes, or improvements, feel free to open an issue or submit a pull request.
+![image2](https://github.com/Manav39/Alumni-Management-System/assets/90371681/34c91069-0948-4048-8830-2064d5922a07)
 
-Thank you for using the Alumni Management System! If you have any questions or need assistance, please don't hesitate to contact us.
+![image3](https://github.com/Manav39/Alumni-Management-System/assets/90371681/018f3167-a60f-4a9e-b02b-8cfab663644b)
+
+![image4](https://github.com/Manav39/Alumni-Management-System/assets/90371681/3190d425-1470-48b6-a84f-e837651bd927)
+
+![image5](https://github.com/Manav39/Alumni-Management-System/assets/90371681/5259b913-2410-4f9f-b96a-bc793cf5b543)
+
+![image7](https://github.com/Manav39/Alumni-Management-System/assets/90371681/e21f3fb1-6bfa-4dfb-a19d-9c7a2f3518b5)
+
+![image8](https://github.com/Manav39/Alumni-Management-System/assets/90371681/e7b3e49d-fcf7-4a25-98f0-f665b5fbed42)
+
+![image9](https://github.com/Manav39/Alumni-Management-System/assets/90371681/97af9f07-66b3-4b05-bd0a-942c35f1ca92)
+
+![image10](https://github.com/Manav39/Alumni-Management-System/assets/90371681/9f2330a5-6f76-4c0e-b36e-dbc3782dcfaa)
+
+![image11](https://github.com/Manav39/Alumni-Management-System/assets/90371681/0125ef00-5dbf-4a3c-9ccc-1f5986efb6dd)
+
+![image12](https://github.com/Manav39/Alumni-Management-System/assets/90371681/5e78bf2f-86eb-4f6d-b21b-fc8a859e2e89)
+
+![image13](https://github.com/Manav39/Alumni-Management-System/assets/90371681/f099cb95-4526-43e6-bd32-36f72615867d)
+
+![image14](https://github.com/Manav39/Alumni-Management-System/assets/90371681/e06397b9-9ed5-4e5d-a732-3155589d59d8)
+
+![image15](https://github.com/Manav39/Alumni-Management-System/assets/90371681/34288df7-ce23-402c-9ae9-83c4e74075d7)
+
+![image16](https://github.com/Manav39/Alumni-Management-System/assets/90371681/8805bbc8-7671-450f-aaeb-581595e98816)
+

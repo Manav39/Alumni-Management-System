@@ -2,6 +2,8 @@
 
 Welcome to the **Alumni Management System** repository! This system is designed to assist universities/colleges in managing their alumni data effectively. The system consists of two main components: frontend and server.
 
+![alumni](https://github.com/Manav39/Alumni-Management-System/assets/90371681/5fd0855e-6c7f-4719-9bd7-4c2c53aa6e64)
+
 ## 🎯 Project Overview 
 
 The Alumni Management System has been developed with the following key features:

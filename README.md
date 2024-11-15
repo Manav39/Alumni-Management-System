@@ -1,4 +1,4 @@
-# Alumni Management System - OSC Mini Project
+# Alumni Management System
 
 Welcome to the **Alumni Management System** repository! This system is designed to assist universities/colleges in managing their alumni data effectively. The system consists of two main components: frontend and server.
 
